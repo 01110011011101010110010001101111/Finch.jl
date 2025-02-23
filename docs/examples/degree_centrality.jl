@@ -9,22 +9,22 @@ function degree_centrality(edges, normalize=true)
 
     @assert n == m
 
-    P = Tensor(Dense(Element(0)), n)
+    P = Tensor(Dense(Element(0.0)), n)
 
     @finch begin
         for j in _
             for k in _
                 if edges[k, j]
-                    P[j] += 1
-                    P[k] += 1
+                    P[j] += $(1 / (n-1))
+                    P[k] += $(1 / (n-1))
                 end
             end
         end
     end
 
-    if normalize
-        P = P ./ (n - 1)
-    end
+    # if normalize
+    #     P = P ./ (n - 1)
+    # end
 
     return P
 end
