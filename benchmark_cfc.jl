@@ -50,9 +50,9 @@ function tensormatmul_einsum_reshape(B, C)
 end
 
 sparsity = 0.01
-row = 1_000
-col = 1_000
-tube = 100
+row = 10_000
+col = 10_000
+tube = 10
 # TODO: different size + sparsity!
 A_tensor = fsprand(row, col, tube, sparsity)
 B = fsprand(row, tube, col, sparsity)
